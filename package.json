@@ -2,6 +2,9 @@
   "name": "frontend-project-lvl1",
   "version": "1.0.0",
   "description": "",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
   "type": "module",
   "main": "index.js",
   "scripts": {
