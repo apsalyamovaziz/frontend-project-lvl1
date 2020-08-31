@@ -1,0 +1,13 @@
+name: lint
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run-linters:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Lint
+        run: make lint
