@@ -9,5 +9,6 @@ jobs:
   run-linters:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Run Lint
         run: make lint
