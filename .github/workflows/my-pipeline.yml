@@ -10,14 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-<<<<<<< HEAD:.github/workflows/my_first_yaml.yml
       
       - name: npm install, build
         run: make install
 
       - name: Run Linter
         run: make lint
-=======
-      - name: Run Lint
-        run: make lint
->>>>>>> 7931d3fe4c068ab8e33b3d57f19a1b49841fe7ed:.github/workflows/my-pipeline.yml
