@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { greeting, userName } from './cli.js';
+import { greeting, userName } from '../src/cli.js';
 
 greeting();
 
@@ -21,6 +21,7 @@ export default () => {
       i = 0;
       console.log(`${answer} is wrong answer ;(. Correct answer was ${isEven(randomNumber)}.
             Let's try again, ${userName}!`);
+      break;
     }
   }
   console.log(`Congratulations, ${userName}!`);
