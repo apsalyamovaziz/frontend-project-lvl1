@@ -13,8 +13,6 @@ const getOperator = () => {
   return operators[Math.floor(Math.random() * operators.length)];
 };
 
-
-
 const calc = (num1, num2, oper) => {
   switch (oper) {
     case plus:
@@ -37,7 +35,7 @@ export default () => {
     const randomNumber2 = Math.floor(Math.random() * 10);
     console.log(`Question: ${randomNumber1} ${oper} ${randomNumber2}`);
     const answer = readlineSync.question('Your answer: ');
-    if (calc(randomNumber1, randomNumber2, oper) === parseInt(answer)) {
+    if (calc(randomNumber1, randomNumber2, oper) === Number(answer)) {
       console.log('Correct!');
     } else {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${calc(randomNumber1, randomNumber2, oper)}.
