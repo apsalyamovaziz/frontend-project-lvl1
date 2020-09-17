@@ -31,7 +31,7 @@ const calcGame = () => {
   const randomNumber1 = randomNumber(10);
   const randomNumber2 = randomNumber(10);
   const question = `Question: ${randomNumber1} ${oper} ${randomNumber2}`;
-  const answer = calc(randomNumber1, randomNumber2, oper);
+  const answer = String(calc(randomNumber1, randomNumber2, oper));
   return [answer, question];
 };
 

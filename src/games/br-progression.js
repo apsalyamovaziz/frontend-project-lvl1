@@ -22,7 +22,7 @@ const progrGame = () => {
   arrProgression[hideElement] = hide;
   const resultString = String(arrProgression.join(' '));
   const question = `Question: ${resultString}`;
-  const answer = hiddenEl;
+  const answer = String(hiddenEl);
   return [answer, question];
 };
 
