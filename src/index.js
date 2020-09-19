@@ -1,24 +1,24 @@
 import readlineSync from 'readline-sync';
 
-export const userName = readlineSync.question('May I have your name? ');
-export const greeting = () => console.log(`Hello, ${userName}!`);
-export const randomNumber = (limit = 10) => Math.floor(Math.random() * limit);
+export const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-const gameRound = 3;
+const maxGameRound = 3;
 
-export const playGame = (rule, expression) => {
+export const playGame = (rule, getCorrectAnswerAndQuestion) => {
+  const userName = readlineSync.question('May I have your name? ');
+  const sayHello = () => console.log(`Hello, ${userName}!`);
+  sayHello();
   console.log(rule);
   let i = 1;
-  while (i <= gameRound) {
-    const [answer, question] = expression();
-    console.log(question);
+  while (i <= maxGameRound) {
+    const [correctAnswer, question] = getCorrectAnswerAndQuestion();
+    console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    /// console.log(typeof(userAnswer));
-    if (userAnswer === answer) {
+    if (userAnswer === correctAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${answer}.
-            Let's try again, ${userName}!`);
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
+      console.log(`Let's try again, ${userName}!`);
       return;
     }
     i += 1;

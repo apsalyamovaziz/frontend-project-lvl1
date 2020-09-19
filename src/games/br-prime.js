@@ -1,25 +1,25 @@
-import { greeting, randomNumber, playGame } from '../index.js';
+import { getRandomNumber, playGame } from '../index.js';
 
-greeting();
 const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
   if (number < 2) {
-    return 'no';
+    return false;
   }
   for (let i = 2; i <= number / 2; i += 1) {
     if (number % i === 0) {
-      return 'no';
+      return false;
     }
   }
-  return 'yes';
+  return true;
 };
 
 const prime = () => {
-  const randomNum = randomNumber(10);
-  const question = `Question: ${randomNum}`;
-  const answer = isPrime(randomNum);
-  return [answer, question];
+  const max = 10;
+  const randomNum = getRandomNumber(1, max);
+  const question = `${randomNum}`;
+  const correctAnswer = isPrime(randomNum) ? 'yes' : 'no';
+  return [correctAnswer, question];
 };
 
 export default () => playGame(rule, prime);

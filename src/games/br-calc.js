@@ -1,6 +1,4 @@
-import { greeting, randomNumber, playGame } from '../index.js';
-
-greeting();
+import { getRandomNumber, playGame } from '../index.js';
 
 const rule = 'What is the result of the expression?';
 
@@ -10,7 +8,7 @@ const mult = '*';
 
 const getOperator = () => {
   const operators = [plus, minus, mult];
-  return operators[randomNumber(operators.length)];
+  return operators[getRandomNumber(0, operators.length - 1)];
 };
 
 const calc = (num1, num2, oper) => {
@@ -27,12 +25,13 @@ const calc = (num1, num2, oper) => {
 };
 
 const calcGame = () => {
+  const max = 15;
   const oper = getOperator();
-  const randomNumber1 = randomNumber(10);
-  const randomNumber2 = randomNumber(10);
-  const question = `Question: ${randomNumber1} ${oper} ${randomNumber2}`;
-  const answer = String(calc(randomNumber1, randomNumber2, oper));
-  return [answer, question];
+  const randomNumber1 = getRandomNumber(1, max);
+  const randomNumber2 = getRandomNumber(1, max);
+  const question = `${randomNumber1} ${oper} ${randomNumber2}`;
+  const correctAnswer = String(calc(randomNumber1, randomNumber2, oper));
+  return [correctAnswer, question];
 };
 
 export default () => playGame(rule, calcGame);

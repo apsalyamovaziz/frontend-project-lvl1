@@ -1,29 +1,32 @@
-import { greeting, randomNumber, playGame } from '../index.js';
+import { getRandomNumber, playGame } from '../index.js';
 
-greeting();
 const rule = 'What number is missing in the progression?';
 
-const makeProgression = () => {
+const makeProgression = (firstElement, step, lengthOfProgression) => {
   const progression = [];
-  const step = randomNumber(20);
-  let start = randomNumber(10);
-  for (let i = 0; i < 10; i += 1) {
-    start += step;
-    progression.push(start);
+  for (let i = 0; i < lengthOfProgression; i += 1) {
+    let firstEl = firstElement;
+    firstEl += step;
+    progression.push(firstEl);
   }
   return progression;
 };
+// Eslint выдавал ошибку no-param-reassign,поэтому введена новая переменнная firstEl
 
 const progrGame = () => {
-  const arrProgression = makeProgression();
-  const hide = '..';
-  const hideElement = randomNumber(10);
-  const hiddenEl = arrProgression[hideElement];
-  arrProgression[hideElement] = hide;
-  const resultString = String(arrProgression.join(' '));
-  const question = `Question: ${resultString}`;
-  const answer = String(hiddenEl);
-  return [answer, question];
+  const lengthOfProgression = 10;
+  const minStep = 1;
+  const maxStep = 10;
+  const maxFirstElement = 10;
+  const firstElement = getRandomNumber(0, maxFirstElement);
+  const step = getRandomNumber(minStep, maxStep);
+  const arrProgression = makeProgression(firstElement, step, lengthOfProgression);
+  const emptyElement = '..';
+  const hiddenElementPosition = getRandomNumber(0, maxFirstElement - 1);
+  const correctAnswer = arrProgression[hiddenElementPosition];
+  arrProgression[hiddenElementPosition] = emptyElement;
+  const question = `${arrProgression.join(' ')}`;
+  return [String(correctAnswer), question];
 };
 
 export default () => playGame(rule, progrGame);

@@ -1,20 +1,15 @@
-import { greeting, randomNumber, playGame } from '../index.js';
+import { getRandomNumber, playGame } from '../index.js';
 
-greeting();
 const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const isEven = (number) => {
-  if (number % 2 === 0) {
-    return 'yes';
-  }
-  return 'no';
-};
+const isEven = (number) => number % 2 === 0;
 
 const evenGame = () => {
-  const randomNum = randomNumber(10);
-  const question = `Question: ${randomNum}`;
-  const answer = isEven(randomNum);
-  return [answer, question];
+  const max = 10;
+  const randomNum = getRandomNumber(1, max);
+  const question = `${randomNum}`;
+  const correctAnswer = isEven(randomNum) ? 'yes' : 'no';
+  return [correctAnswer, question];
 };
 
 export default () => playGame(rule, evenGame);
