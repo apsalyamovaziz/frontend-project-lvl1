@@ -19,7 +19,7 @@ const prime = () => {
   const randomNum = getRandomNumber(1, max);
   const question = `${randomNum}`;
   const correctAnswer = isPrime(randomNum) ? 'yes' : 'no';
-  return [correctAnswer, question];
+  return [question, correctAnswer];
 };
 
 export default () => playGame(rule, prime);

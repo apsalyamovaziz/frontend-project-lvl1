@@ -5,13 +5,10 @@ const rule = 'What number is missing in the progression?';
 const makeProgression = (firstElement, step, lengthOfProgression) => {
   const progression = [];
   for (let i = 0; i < lengthOfProgression; i += 1) {
-    let firstEl = firstElement;
-    firstEl += step;
-    progression.push(firstEl);
+    progression.push(firstElement + (i * step));
   }
   return progression;
 };
-// Eslint выдавал ошибку no-param-reassign,поэтому введена новая переменнная firstEl
 
 const progrGame = () => {
   const lengthOfProgression = 10;
@@ -26,7 +23,7 @@ const progrGame = () => {
   const correctAnswer = arrProgression[hiddenElementPosition];
   arrProgression[hiddenElementPosition] = emptyElement;
   const question = `${arrProgression.join(' ')}`;
-  return [String(correctAnswer), question];
+  return [question, String(correctAnswer)];
 };
 
 export default () => playGame(rule, progrGame);

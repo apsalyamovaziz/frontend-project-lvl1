@@ -15,7 +15,7 @@ const gcdGame = () => {
   const randomNumber2 = getRandomNumber(1, max);
   const question = `${randomNumber1} ${randomNumber2}`;
   const correctAnswer = String(gcd(randomNumber1, randomNumber2));
-  return [correctAnswer, question];
+  return [question, correctAnswer];
 };
 
 export default () => playGame(rule, gcdGame);
