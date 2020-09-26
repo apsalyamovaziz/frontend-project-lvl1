@@ -1,4 +1,5 @@
-import { getRandomNumber, playGame } from '../index.js';
+import playGame from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const rule = 'What is the result of the expression?';
 
@@ -24,7 +25,7 @@ const calc = (num1, num2, oper) => {
   }
 };
 
-const calcGame = () => {
+const getCorrectAnswerAndQuestion = () => {
   const max = 15;
   const oper = getOperator();
   const randomNumber1 = getRandomNumber(1, max);
@@ -34,4 +35,4 @@ const calcGame = () => {
   return [question, correctAnswer];
 };
 
-export default () => playGame(rule, calcGame);
+export default () => playGame(rule, getCorrectAnswerAndQuestion);

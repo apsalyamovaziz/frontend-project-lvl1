@@ -1,4 +1,5 @@
-import { getRandomNumber, playGame } from '../index.js';
+import playGame from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const rule = 'What number is missing in the progression?';
 
@@ -9,21 +10,21 @@ const makeProgression = (firstElement, step, lengthOfProgression) => {
   }
   return progression;
 };
+const lengthOfProgression = 10;
+const minStep = 1;
+const maxStep = 10;
+const maxFirstElement = 10;
 
-const progrGame = () => {
-  const lengthOfProgression = 10;
-  const minStep = 1;
-  const maxStep = 10;
-  const maxFirstElement = 10;
+const getCorrectAnswerAndQuestion = () => {
   const firstElement = getRandomNumber(0, maxFirstElement);
   const step = getRandomNumber(minStep, maxStep);
-  const arrProgression = makeProgression(firstElement, step, lengthOfProgression);
+  const progression = makeProgression(firstElement, step, lengthOfProgression);
   const emptyElement = '..';
   const hiddenElementPosition = getRandomNumber(0, maxFirstElement - 1);
-  const correctAnswer = arrProgression[hiddenElementPosition];
-  arrProgression[hiddenElementPosition] = emptyElement;
-  const question = `${arrProgression.join(' ')}`;
+  const correctAnswer = progression[hiddenElementPosition];
+  progression[hiddenElementPosition] = emptyElement;
+  const question = `${progression.join(' ')}`;
   return [question, String(correctAnswer)];
 };
 
-export default () => playGame(rule, progrGame);
+export default () => playGame(rule, getCorrectAnswerAndQuestion);
