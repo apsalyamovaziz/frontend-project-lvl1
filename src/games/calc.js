@@ -25,11 +25,12 @@ const calc = (num1, num2, oper) => {
   }
 };
 
+const maxRandomNumber = 15;
+
 const getCorrectAnswerAndQuestion = () => {
-  const max = 15;
   const oper = getOperator();
-  const randomNumber1 = getRandomNumber(1, max);
-  const randomNumber2 = getRandomNumber(1, max);
+  const randomNumber1 = getRandomNumber(1, maxRandomNumber);
+  const randomNumber2 = getRandomNumber(1, maxRandomNumber);
   const question = `${randomNumber1} ${oper} ${randomNumber2}`;
   const correctAnswer = String(calc(randomNumber1, randomNumber2, oper));
   return [question, correctAnswer];

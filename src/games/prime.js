@@ -15,10 +15,11 @@ const isPrime = (number) => {
   return true;
 };
 
+const maxRandomNumber = 10;
+
 const getCorrectAnswerAndQuestion = () => {
-  const max = 10;
-  const randomNum = getRandomNumber(1, max);
-  const question = `${randomNum}`;
+  const randomNum = getRandomNumber(1, maxRandomNumber);
+  const question = randomNum;
   const correctAnswer = isPrime(randomNum) ? 'yes' : 'no';
   return [question, correctAnswer];
 };

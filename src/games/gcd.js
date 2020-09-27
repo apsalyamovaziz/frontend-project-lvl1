@@ -10,10 +10,11 @@ const gcd = (a, b) => {
   return gcd(b, a % b);
 };
 
+const maxRandomNumber = 10;
+
 const getCorrectAnswerAndQuestion = () => {
-  const max = 10;
-  const randomNumber1 = getRandomNumber(1, max);
-  const randomNumber2 = getRandomNumber(1, max);
+  const randomNumber1 = getRandomNumber(1, maxRandomNumber);
+  const randomNumber2 = getRandomNumber(1, maxRandomNumber);
   const question = `${randomNumber1} ${randomNumber2}`;
   const correctAnswer = String(gcd(randomNumber1, randomNumber2));
   return [question, correctAnswer];
