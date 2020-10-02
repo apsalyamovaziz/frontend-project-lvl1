@@ -23,7 +23,7 @@ const getCorrectAnswerAndQuestion = () => {
   const hiddenElementPosition = getRandomNumber(0, maxRandomNumber - 1);
   const correctAnswer = progression[hiddenElementPosition];
   progression[hiddenElementPosition] = emptyElement;
-  const question = `${progression.join(' ')}`;
+  const question = progression.join(' ');
   return [question, String(correctAnswer)];
 };
 
